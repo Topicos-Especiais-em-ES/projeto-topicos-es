@@ -11,8 +11,8 @@
     <module>gateway</module>
     <module>vinculos</module>
     <module>usuario</module>
-    <module>arquivos</module>
+<!--     <module>arquivos</module>
     <module>email</module>
-    <module>editais</module>
+    <module>editais</module> -->
   </modules>
 </project>
