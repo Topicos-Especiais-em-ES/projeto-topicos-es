@@ -23,6 +23,8 @@ services:
     depends_on:
       usuario-db:
         condition: service_healthy
+    ports:
+      - 8090:8080
       
     environment:
       - SPRING_PROFILES_ACTIVE=docker
