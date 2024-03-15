@@ -23,8 +23,8 @@ public class Vaga {
     	this.ativa = dados.ativa();
     }
     
-    // Método para verificar se a quantidade de pessoas concorrendo está dentro do intervalo permitido
-    public boolean VagaValida() {
+    // Método para verificar se a quantidade de pessoas concorrendo nestá dentro do intervalo permitido
+    public boolean vagaValida() {
     	if(this.quantidade >= 30 || this.quantidade <= 60) {
     		ativar();
     		return this.ativa;
