@@ -40,7 +40,8 @@ public class ParticipacoesRequest implements DateRange{
     @ProjetoExists(message = "O projeto não existe")
     private Long projetoId;
 
-    //private Long estudanteId;
+    @NotNull(message = "O estudante ID não pode ser vazio")
+    private Long estudanteId;
     
     @NotFutureDate(message = "A data de início não pode ser futura")
     @DateTimeFormat(pattern = "dd/MM/yyyy")

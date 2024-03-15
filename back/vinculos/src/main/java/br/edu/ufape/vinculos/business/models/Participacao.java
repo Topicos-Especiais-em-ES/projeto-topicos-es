@@ -22,7 +22,7 @@ public class Participacao {
     @JoinColumn(name = "projeto_id")
     private Projeto projeto;
 
-    //Implementar o relacionamento com Estudante
+    private Long estudanteId;
 
     private Date dataInicio;
 

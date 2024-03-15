@@ -11,4 +11,5 @@ import br.edu.ufape.vinculos.business.models.Projeto;
 @Repository
 public interface ParticipacaoRepository extends JpaRepository<Participacao, Long>{
     List<Participacao> findByProjeto(Projeto projeto);
+    List<Participacao> findByEstudanteId(Long estudanteId);
 }

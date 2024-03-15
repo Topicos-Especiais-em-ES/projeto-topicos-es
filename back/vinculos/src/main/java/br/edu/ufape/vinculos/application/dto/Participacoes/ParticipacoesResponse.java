@@ -16,7 +16,7 @@ import br.edu.ufape.vinculos.config.SpringApplicationContext;
 public class ParticipacoesResponse {
     private Long id;
     private Long projetoId;
-    //private Long estudanteId;
+    private Long estudanteId;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataInicio;
     @JsonFormat(pattern = "dd/MM/yyyy")
