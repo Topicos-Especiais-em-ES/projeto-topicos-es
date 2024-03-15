@@ -6,6 +6,8 @@ public record DadosAtualizarVaga(
 		
 		@NotNull
 		Long id,
+		
+		@NotNull
 		int quantidade) {
 
 }

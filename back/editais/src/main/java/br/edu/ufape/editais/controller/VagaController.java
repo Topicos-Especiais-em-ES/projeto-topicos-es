@@ -76,8 +76,9 @@ public class VagaController {
     @Transactional
     public ResponseEntity<Void> reativarVaga(@PathVariable Long id) {
         var vaga = repository.getReferenceById(id);
-        vaga.ativar();
+        vaga.ativar();     	 
         
         return ResponseEntity.noContent().build();
+
     }
 }
