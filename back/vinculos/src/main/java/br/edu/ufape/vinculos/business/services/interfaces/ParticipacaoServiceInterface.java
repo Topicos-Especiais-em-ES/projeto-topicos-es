@@ -13,6 +13,8 @@ public interface ParticipacaoServiceInterface {
 
     Participacao findParticipacao(Long id);
 
+    List<Participacao> findParticipacoesByEstudanteId(Long estudanteId);
+
     List<Participacao> findAllParticipacoes();
 
     List<Participacao> findParticipacaoByProjeto(Projeto projeto);

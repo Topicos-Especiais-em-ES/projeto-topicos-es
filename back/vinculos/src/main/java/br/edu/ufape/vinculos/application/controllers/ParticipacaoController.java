@@ -60,6 +60,11 @@ public class ParticipacaoController {
         }
     }
 
+    @GetMapping("/estudante/{id}")
+    public List<ParticipacoesResponse> findParticipacoesByEstudanteId(@PathVariable Long id) {
+        return participacoes.findParticipacoesByEstudanteId(id).stream().map(ParticipacoesResponse::new).toList();
+    }
+
     @GetMapping
     public List<ParticipacoesResponse> findAllParticipacoes() {
         return participacoes.findAllParticipacoes().stream().map(ParticipacoesResponse::new).toList();

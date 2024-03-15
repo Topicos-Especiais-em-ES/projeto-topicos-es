@@ -74,6 +74,10 @@ public class Facade {
         return participacaoService.findParticipacao(id);
     }
 
+    public List<Participacao> findParticipacoesByEstudanteId(Long estudanteId) {
+        return participacaoService.findParticipacoesByEstudanteId(estudanteId);
+    }
+
     public List<Participacao> findAllParticipacoes() {
         return participacaoService.findAllParticipacoes();
     }

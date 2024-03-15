@@ -43,6 +43,8 @@ public class ParticipacoesUpdateRequest implements DateRange{
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataFim;
 
+    private Long estudanteId;
+    
     public Participacao convertToEntity() {
         ModelMapper modelMapper = (ModelMapper) SpringApplicationContext.getBean("modelMapper");
         Participacao obj = modelMapper.map(this, Participacao.class);
