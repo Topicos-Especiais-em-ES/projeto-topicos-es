@@ -20,18 +20,20 @@ public class Vaga {
 
     public Vaga(VagaDTO dados) {
     	this.quantidade = dados.quantidade();
-    	this.ativa = dados.ativa();
+    	this.ativa = true;
     }
     
-    // Método para verificar se a quantidade de pessoas concorrendo nestá dentro do intervalo permitido
+    /*
+    // Método para verificar se a quantidade de pessoas concorrendo está dentro do intervalo permitido
     public boolean vagaValida() {
-    	if(this.quantidade >= 30 || this.quantidade <= 60) {
+    	if(this.quantidade > 50) {
     		ativar();
     		return this.ativa;
     	}
     	inativar();
     	return this.ativa;
     }
+    */
 
 	public void atualizarInformacoes(DadosAtualizarVaga dados) {
 		if (dados.quantidade() != 0) {

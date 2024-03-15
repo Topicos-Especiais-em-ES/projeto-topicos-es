@@ -6,7 +6,6 @@ public record VagaDTO(
 		
 		@NotNull
 		int quantidade,
-			
 		boolean ativa) {
 
 }

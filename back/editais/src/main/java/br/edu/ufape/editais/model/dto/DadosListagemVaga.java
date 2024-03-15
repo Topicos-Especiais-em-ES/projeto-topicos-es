@@ -5,10 +5,9 @@ import br.edu.ufape.editais.model.Vaga;
 public record DadosListagemVaga(
 		
 		Long id,
-		int quantidade,
-		boolean ativa) {
+		int quantidade) {
 
 	public DadosListagemVaga(Vaga vaga) {
-		this(vaga.getId(), vaga.getQuantidade(), vaga.isAtiva());
+		this(vaga.getId(), vaga.getQuantidade());
 	}
 }
