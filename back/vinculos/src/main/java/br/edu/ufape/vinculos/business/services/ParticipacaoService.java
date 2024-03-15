@@ -2,7 +2,6 @@ package br.edu.ufape.vinculos.business.services;
 
 import java.util.List;
 
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
