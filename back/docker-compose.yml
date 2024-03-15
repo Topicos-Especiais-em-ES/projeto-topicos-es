@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3.8'
 
 services:
   discovery:
@@ -6,31 +6,102 @@ services:
     mem_limit: 512m
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      
+
   gateway:
     build: gateway
     mem_limit: 512m
     ports:
       - "8080:8080"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker     
-  catalog:
-    build: catalog
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - discovery
+
+  usuario:
+    build: usuario
     mem_limit: 512m
+    depends_on:
+      usuario-db:
+        condition: service_healthy
+      
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-  reviews:
-    build: reviews
+
+  usuario-db:
+    image: postgres:12
+    container_name: usuario-db
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: secret
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d mydatabase"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  vinculos:
+    build: vinculos
     mem_limit: 512m
+    depends_on:
+      vinculos-db:
+        condition: service_healthy
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-  agregate:
-    build: agregate
-    mem_limit: 512m
+
+  vinculos-db:
+    image: postgres:12
+    container_name: vinculos-db
     environment:
-      - SPRING_PROFILES_ACTIVE=docker  
-  message:
-     image: "rabbitmq:3-management"
-     ports: 
-       - "5672:5672"
-       - "15672:15672"
+      POSTGRES_DB: vinculos-service
+      POSTGRES_USER: Caio
+      POSTGRES_PASSWORD: 55555
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U Caio -d vinculos-service"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  arquivos:
+    build: arquivos
+    mem_limit: 512m
+    depends_on:
+      arquivos-db:
+        condition: service_healthy
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  arquivos-db:
+    image: postgres:12
+    container_name: arquivos-db
+    environment:
+      POSTGRES_DB: files-service
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 12345678
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U root -d files-service"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  editais:
+    build: editais
+    mem_limit: 512m
+    depends_on:
+      editais-db:
+        condition: service_healthy
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  editais-db:
+    image: postgres:12
+    container_name: editais-db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

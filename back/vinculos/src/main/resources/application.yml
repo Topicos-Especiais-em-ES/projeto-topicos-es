@@ -1,5 +1,7 @@
 # Database configuration
 spring:
+  application:
+    name: vinculos
   datasource:
     url: jdbc:postgresql://localhost:5432/vinculos-service
     username: Caio
@@ -14,9 +16,21 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-   
-        
+
+# Server configuration
+server:
+  port: 8084
 
 logging:
   level:
     org.springframework.web: DEBUG
+
+
+---
+spring.config.activate.on-profile: docker
+server.port: 8080
+spring.datasource.url: jdbc:postgresql://vinculos-db:5432/vinculos-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/

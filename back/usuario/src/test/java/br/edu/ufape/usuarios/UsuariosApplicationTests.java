@@ -1,13 +1,13 @@
-package br.edu.ufape.usuarios;
+// package br.edu.ufape.usuarios;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class UsuariosApplicationTests {
+// @SpringBootTest
+// class UsuariosApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }

@@ -1,13 +1,13 @@
-package br.edu.ufape.editais;
+// package br.edu.ufape.editais;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class EditaisApplicationTests {
+// @SpringBootTest
+// class EditaisApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }

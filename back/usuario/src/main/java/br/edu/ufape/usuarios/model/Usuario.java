@@ -1,10 +1,9 @@
 package br.edu.ufape.usuarios.model;
 
-import java.time.LocalDate;
-
 import br.edu.ufape.usuarios.model.enums.EstadoCivil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -13,6 +12,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,8 +25,8 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	// id do keycloak
-	@NotBlank
-	private String userId;
+	@Nullable
+	private String keycloak;
 	@Column(unique = true)
 	@NotBlank
 	private String login;
@@ -44,6 +46,7 @@ public class Usuario {
 	private String orgaoExpedidorRg;
 	@Past
 	@NotNull
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate emissaoRg;
 	@NotBlank
 	@CPF

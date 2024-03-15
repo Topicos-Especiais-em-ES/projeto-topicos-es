@@ -1,0 +1,27 @@
+# Spring Boot configuration
+spring:
+  application:
+    name: arquivos
+  datasource:
+    url: jdbc:postgresql://localhost:5432/files-service
+    username: root
+    password: 12345678
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+# Server configuration
+server:
+  port: 8085
+
+---
+spring.config.activate.on-profile: docker
+server.port: 8080
+spring.datasource.url: jdbc:postgresql://arquivos-db:5432/files-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
