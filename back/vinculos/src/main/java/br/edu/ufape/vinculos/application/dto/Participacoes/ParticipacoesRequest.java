@@ -4,6 +4,7 @@ import java.util.Date;
 
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -55,6 +56,7 @@ public class ParticipacoesRequest implements DateRange{
 
     public Participacao convertToEntity() {
         ModelMapper modelMapper = (ModelMapper) SpringApplicationContext.getBean("modelMapper");
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         Participacao obj = modelMapper.map(this, Participacao.class);
         return obj;
     }
